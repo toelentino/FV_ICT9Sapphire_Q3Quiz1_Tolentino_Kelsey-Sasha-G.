@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic and Logical Operators</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fcffc9;
+            padding: 20px;
+        }
+        h1 {
+            color: #7dc7db;
+            font-family: century gothic;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        p {
+        	font-family: century gothic;
+        }
+
+        h3 {
+        	font-family: century gothic;
+        	color: #7dc7db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">JavaScript Operators</h1>
+        <p>This webpage demonstrates the use of arithmetic, comparison, and logical operators in JavaScript. Click the buttons below to see the results of various operations.</p>
+        <div class="text-center">
+            <h3>Arithmetic Operations</h3>
+            <input type="number" id="arithmeticA" placeholder="Enter first number" class="form-control mb-2" />
+            <input type="number" id="arithmeticB" placeholder="Enter second number" class="form-control mb-2" />
+            <button class="btn btn-primary" onclick="performArithmetic()">Perform Arithmetic</button>
+            <h3 class="mt-4">Comparison Operations</h3>
+            <input type="number" id="comparisonX" placeholder="Enter first number" class="form-control mb-2" />
+            <input type="number" id="comparisonY" placeholder="Enter second number" class="form-control mb-2" />
+            <button class="btn btn-secondary" onclick="performComparison()">Perform Comparison</button>
+            <h3 class="mt-4">Logical Operations</h3>
+            <input type="text" id="logicalA" placeholder="Enter true/false" class="form-control mb-2" />
+            <input type="text" id="logicalB" placeholder="Enter true/false" class="form-control mb-2" />
+            <button class="btn btn-success" onclick="performLogical()">Perform Logical Operation</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+    <footer class="text-center mt-4">
+        <p>For more information, visit <a href="https://www.w3schools.com/js/js_intro.asp" target="_blank">W3Schools</a>.</p>
+    </footer>
+    <script>
+        function performArithmetic() {
+            let a = parseFloat(document.getElementById("arithmeticA").value);
+            let b = parseFloat(document.getElementById("arithmeticB").value);
+            let sum = a + b;
+            let difference = a - b;
+            let product = a * b;
+            let quotient = b !== 0 ? (a / b) : "Cannot divide by zero";
+            let modulus = a % b;
+            document.getElementById("result").innerHTML = `Arithmetic Results:<br> Sum: ${sum}<br> Difference: ${difference}<br> Product: ${product}<br> Quotient: ${quotient}<br> Modulus: ${modulus}`;
+        }
+        function performComparison() {
+            let x = parseFloat(document.getElementById("comparisonX").value);
+            let y = parseFloat(document.getElementById("comparisonY").value);
+            let isEqual = (x === y);
+            let isGreater = (x > y);
+            let isLess = (x < y);
+            let isNotEqual = (x !== y);
+            let isGreaterOrEqual = (x >= y);
+            let isLessOrEqual = (x <= y);
+            document.getElementById("result").innerHTML = `Comparison Results:<br> Is Equal: ${isEqual}<br> Is Greater: ${isGreater}<br> Is Less: ${isLess}<br> Is Not Equal: ${isNotEqual}<br> Is Greater or Equal: ${isGreaterOrEqual}<br> Is Less or Equal: ${isLessOrEqual}`;
+        }
+        function performLogical() {
+            let a = document.getElementById("logicalA").value.toLowerCase() === 'true';
+            let b = document.getElementById("logicalB").value.toLowerCase() === 'true';
+            let andResult = a && b;
+            let orResult = a || b;
+            let notA = !a;
+            let notB = !b;
+            document.getElementById("result").innerHTML = `Logical Results:<br> A AND B: ${andResult}<br> A OR B: ${orResult}<br> NOT A: ${notA}<br> NOT B: ${notB}`;
+        }
+    </script>
+</body>
+</html>
